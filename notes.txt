@@ -1,0 +1,7 @@
+ok i tink im getting to it
+
+
+
+we need event listeners for jS and we just need to get something done so we can understnad
+
+and then integrate the use of modals and shi
