@@ -143,18 +143,20 @@ body {
 /* Mascot Styles */
 .mascot {
     position: absolute;
-    width: 80px;
+    width: 75px;
     height: auto;
+    padding: 10px;
+    border-radius: 50%;
 }
 
 .mascot-bottom-left {
-    bottom: 30px;
-    left: 30px;
+    bottom: 10px;
+    left: 10px;
 }
 
 .mascot-top-right {
-    top: 30px;
-    right: 30px;
+    top: 10px;
+    right: 10px;
 }
 
 /* Responsive styles */
