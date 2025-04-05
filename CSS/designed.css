@@ -175,6 +175,10 @@ header {
 .content {
     flex-grow: 1;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*display, flex-direction and align-items are used for alignment of a single task category*/
 }
 
 .welcome-banner {
@@ -200,8 +204,10 @@ header {
     border-radius: 8px;
     padding: 1.5rem;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px; /*adjust all the width, previously 500px*/
     color: var(--text-dark);
+    align-items: center;
+    justify-content: center;
 }
 
 .category-header {
@@ -225,14 +231,14 @@ header {
 }
 
 
-.search-container {
-    width: 100%; /* Adjust width relative to .task-category */
+/* .search-container {
+    width: 100%;  Adjust width relative to .task-category 
     max-width: 350px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem; /* Space from elements below */
+    margin-bottom: 1rem; Space from elements below 
 }
 
 .search-input {
@@ -249,7 +255,7 @@ header {
     padding: 0.5rem 1rem;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
-}
+} */
 
 
 .task-list {

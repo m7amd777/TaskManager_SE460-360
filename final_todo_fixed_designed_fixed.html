@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHOOSE - Modern Task Manager</title>
     <link rel="stylesheet" href="CSS/designed.css">
-    <link rel="stylesheet" href="CSS/basic_copy.css">
+    <link rel="stylesheet" href="CSS/basic2.css">
     <script src ="JS/script_designed.js" defer></script>
-    <script src ="JS/basic.js" defer></script>
+    <script src ="JS/script2.js" defer></script>
 </head>
 <body>
     <header>
@@ -62,11 +62,15 @@
                     <div class="category-icon">🎓</div>
                 </div>
                 <div class="container">
-                    <h1>Your Life
-                    </h1>
+                    <h1>Todo List</h1>
                     
                     <div class="input-group">
                         <input type="text" id="task-input" placeholder="Add a new task...">
+                        <select id="priority-dropdown" class="priority-dropdown">
+                            <option value="low" class="priority-low">Low Priority</option>
+                            <option value="medium" class="priority-medium">Medium Priority</option>
+                            <option value="high" class="priority-high">High Priority</option>
+                        </select>
                         <button id="add-task-btn">Add</button>
                     </div>
                     
@@ -74,62 +78,17 @@
                         <input type="text" id="search-input" placeholder="Search tasks...">
                     </div>
                     
+                    <div class="filter-container">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="low">Low Priority</button>
+                        <button class="filter-btn" data-filter="medium">Medium Priority</button>
+                        <button class="filter-btn" data-filter="high">High Priority</button>
+                    </div>
+                    
                     <ul id="task-list" class="task-list"></ul>
                 </div>
             </div>
-            <!-- </div> -->
         </main>
-        <!-- <main class="content">
-            <div class="welcome-banner">
-                Welcome back, SuperStar <span class="star-icon">★</span>
-            </div>
-
-            <div class="task-categories">
-                <div class="task-category">
-                    <div class="category-header">
-                        <span>UNIVERSITY</span>
-                        <div class="category-icon">🎓</div>
-                    </div>
-                    <div class="search-container">
-                        <input type="text" class="search-input" placeholder="Search your task here...">
-                        <button class="search-button">🔍</button>
-                    </div>
-                    <div class="task-list">
-                        <div class="task-item">
-                            <div>
-                                <input type="checkbox" id="task1">
-                                <label for="task1">To do list</label>
-                            </div>
-                        </div>
-                        <div class="task-item">
-                            <div>
-                                <input type="checkbox" id="task2">
-                                <label for="task2">To do list</label>
-                            </div>
-                        </div>
-                        <div class="task-item">
-                            <div>
-                                <input type="checkbox" id="task3">
-                                <label for="task3">To do list</label>
-                            </div>
-                        </div>
-                        <div class="task-item">
-                            <div>
-                                <input type="checkbox" id="task4">
-                                <label for="task4">To do list</label>
-                            </div>
-                        </div>
-                        <div class="task-item">
-                            <div>
-                                <input type="checkbox" id="task5">
-                                <label for="task5">To do list</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="add-task-button">
-                        <span>+</span> Add Task
-                    </button>
-                </div>end of the div that i need -->
             </div>
         </main>
     </div>

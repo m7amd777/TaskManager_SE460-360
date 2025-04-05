@@ -15,8 +15,3 @@ actual implementation is in playground because we are experimenting a lot of stu
     two important stuff to look at:
     todo_basic fucntions.html
     todo_designed website.html
-
-
-
-
-test 
