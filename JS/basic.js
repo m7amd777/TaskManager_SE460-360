@@ -176,6 +176,7 @@ function renderTasks(searchTerm = '') {
             <div class="task-actions">
                 <button class="edit-btn">✏️</button>
                 <button class="delete-btn" data-id="${task.id}">🗑️</button>
+                <button class="delete-btn" data-id="${task.id}">🗑️  </button>
             </div>
         `;
         
