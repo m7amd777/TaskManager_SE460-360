@@ -1,14 +1,14 @@
 // DOM elements
-const taskInput = document.getElementById('task-input');
-const priorityDropdown = document.getElementById('priority-dropdown');
-const addTaskBtn = document.getElementById('add-task-btn');
-const searchInput = document.getElementById('search-input');
-const taskList = document.getElementById('task-list');
-const filterButtons = document.querySelectorAll('.filter-btn');
+const taskInput = document.getElementById('task-input'); //Input field for new task text
+const priorityDropdown = document.getElementById('priority-dropdown'); //Dropdown box to select task priority
+const addTaskBtn = document.getElementById('add-task-btn'); //Button to add a new task
+const searchInput = document.getElementById('search-input'); //Input field to search and filter tasks
+const taskList = document.getElementById('task-list'); //UI element to display the list of tasks
+const filterButtons = document.querySelectorAll('.filter-btn'); //Buttons for filtering by priority
 
 // Task array to store all tasks
 let tasks = [];
-let currentFilter = 'all';
+let currentFilter = 'all'; //Default filter as the page loads
 
 // Load tasks from local storage
 function loadTasks() {
@@ -18,61 +18,61 @@ function loadTasks() {
             tasks = JSON.parse(savedTasks);
         }
     } catch (e) {
-        console.error('Error loading tasks from local storage:', e);
+        console.error('Error loading tasks from local storage:', e); //Error handling when retrieving tasks
         tasks = [];
     }
 }
 
 // Initialize the app
-loadTasks();
-renderTasks();
+loadTasks(); //Load tasks when page is loaded
+renderTasks(); //display the loaded tasks
 
 // Event listeners
-addTaskBtn.addEventListener('click', addTask);
+addTaskBtn.addEventListener('click', addTask); //Add task on button click
 taskInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
-        addTask();
+        addTask(); //Add the task when ENTER is pressed
     }
 });
 
 searchInput.addEventListener('input', function() {
-    filterAndRenderTasks();
+    filterAndRenderTasks(); //Filter tasks as the user is typing in search box
 });
 
 // Filter buttons
 filterButtons.forEach(button => {
     button.addEventListener('click', function() {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        this.classList.add('active');
-        currentFilter = this.getAttribute('data-filter');
-        filterAndRenderTasks();
+        filterButtons.forEach(btn => btn.classList.remove('active')); //Remove active class from all buttons
+        this.classList.add('active'); //Add active class to clicked button
+        currentFilter = this.getAttribute('data-filter'); //Get the filter type
+        filterAndRenderTasks(); //Redisplay tasks with new filter
     });
 });
 
 // Add task function
 function addTask() {
-    const taskText = taskInput.value.trim();
+    const taskText = taskInput.value.trim(); //Get input from user and trim it
     if (taskText) {
         const newTask = {
-            id: Date.now().toString(),
-            text: taskText,
-            completed: false,
-            priority: priorityDropdown.value
+            id: Date.now().toString(), //Generate a unique task ID by using current timestamp and using at as the ID
+            text: taskText, //Task description
+            completed: false, //Mark task as incomplete
+            priority: priorityDropdown.value //Set priority from dropdown box
         };
         
-        tasks.unshift(newTask);
-        saveTasks();
-        filterAndRenderTasks();
+        tasks.unshift(newTask); // Add new task to start of the array
+        saveTasks(); // Save to localStorage
+        filterAndRenderTasks(); //Re-render tasks
         
-        taskInput.value = '';
-        taskInput.focus();
+        taskInput.value = ''; //Clear input
+        taskInput.focus(); //Focus input again
     }
 }
 
 // Remove task function
 function deleteTask(id) {
-    tasks = tasks.filter(task => task.id !== id);
-    saveTasks();
+    tasks = tasks.filter(task => task.id !== id); //Filter out tasks by ID
+    saveTasks(); //Save changes made to tasks
     filterAndRenderTasks();
 }
 
@@ -80,7 +80,7 @@ function deleteTask(id) {
 function toggleTaskCompletion(id) {
     tasks = tasks.map(task => {
         if (task.id === id) {
-            return { ...task, completed: !task.completed };
+            return { ...task, completed: !task.completed }; //Toggle completion status (complete / incomplete)
         }
         return task;
     });
@@ -91,11 +91,12 @@ function toggleTaskCompletion(id) {
 
 // Edit task function
 function editTask(id) {
-    const taskElement = document.getElementById(`task-${id}`);
-    const task = tasks.find(t => t.id === id);
+    const taskElement = document.getElementById(`task-${id}`); //Get DOM element of task
+    const task = tasks.find(t => t.id === id); //Find a task in array
     
-    if (!taskElement || !task) return;
+    if (!taskElement || !task) return; //Exit if a task is not found
     
+    //Replace task HTML with editable version
     taskElement.innerHTML = `
         <div class="task-content edit-mode">
             <input type="text" class="edit-input" value="${task.text}">
@@ -109,24 +110,24 @@ function editTask(id) {
         </div>
     `;
     
-    const editInput = taskElement.querySelector('.edit-input');
-    const editPriorityDropdown = taskElement.querySelector('.edit-priority-dropdown');
-    const saveBtn = taskElement.querySelector('.save-btn');
-    const cancelBtn = taskElement.querySelector('.cancel-btn');
+    const editInput = taskElement.querySelector('.edit-input'); //Text input for editing
+    const editPriorityDropdown = taskElement.querySelector('.edit-priority-dropdown'); //Dropdown box for priority editing
+    const saveBtn = taskElement.querySelector('.save-btn'); //Save button
+    const cancelBtn = taskElement.querySelector('.cancel-btn'); //Cancel button
     
-    editInput.focus();
+    editInput.focus(); //Focus on input field
     
     saveBtn.addEventListener('click', () => {
-        saveTaskEdit(id, editInput.value.trim(), editPriorityDropdown.value);
+        saveTaskEdit(id, editInput.value.trim(), editPriorityDropdown.value); //Save edited task
     });
     
     cancelBtn.addEventListener('click', () => {
-        filterAndRenderTasks();
+        filterAndRenderTasks(); //Cancel edit and redisplay task
     });
     
     editInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
-            saveTaskEdit(id, editInput.value.trim(), editPriorityDropdown.value);
+            saveTaskEdit(id, editInput.value.trim(), editPriorityDropdown.value); //Save when ENTER is pressed
         }
     });
 }
@@ -136,7 +137,7 @@ function saveTaskEdit(id, newText, newPriority) {
     if (newText) {
         tasks = tasks.map(task => {
             if (task.id === id) {
-                return { ...task, text: newText, priority: newPriority };
+                return { ...task, text: newText, priority: newPriority }; //Update task
             }
             return task;
         });
@@ -148,8 +149,8 @@ function saveTaskEdit(id, newText, newPriority) {
 
 // Filter and render tasks
 function filterAndRenderTasks() {
-    const searchTerm = searchInput.value.toLowerCase().trim();
-    renderTasks(searchTerm);
+    const searchTerm = searchInput.value.toLowerCase().trim(); //Get search input from user
+    renderTasks(searchTerm); //display tasks that match the search term
 }
 
 // Render tasks to DOM
@@ -217,21 +218,21 @@ function renderTasks(searchTerm = '') {
     document.querySelectorAll('.task-checkbox').forEach(checkbox => {
         checkbox.addEventListener('change', function() {
             const taskId = this.closest('.task-item').id.replace('task-', '');
-            toggleTaskCompletion(taskId);
+            toggleTaskCompletion(taskId); //Toggle completion status (complete / incomplete)
         });
     });
     
     document.querySelectorAll('.edit-btn').forEach(button => {
         button.addEventListener('click', function() {
             const taskId = this.closest('.task-item').id.replace('task-', '');
-            editTask(taskId);
+            editTask(taskId); // Enter edit mode
         });
     });
     
     document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', function() {
             const taskId = this.closest('.task-item').id.replace('task-', '');
-            deleteTask(taskId);
+            deleteTask(taskId); //Delete task
         });
     });
 }
@@ -239,8 +240,8 @@ function renderTasks(searchTerm = '') {
 // Save tasks to local storage
 function saveTasks() {
     try {
-        localStorage.setItem('tasks', JSON.stringify(tasks));
+        localStorage.setItem('tasks', JSON.stringify(tasks)); //Convert array to string then save
     } catch (e) {
-        console.error('Error saving tasks to local storage:', e);
+        console.error('Error saving tasks to local storage:', e); //Handle any save errors
     }
 }

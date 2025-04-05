@@ -1,4 +1,5 @@
 :root {
+    /*predefining custom colors to reuse throughout the code*/
     --primary-color: #4361ee;
     --secondary-color: #3f37c9;
     --success-color: #a5d6a7;
@@ -19,6 +20,7 @@
 }
 
 * {
+    /* Reset margin & padding & enable border box sizing*/
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -26,6 +28,7 @@
 }
 
 body {
+    /*Set base background and text color*/
     background-color: #f5f5f5;
     color: var(--dark-color);
     /* line-height: 1.6;
@@ -33,6 +36,7 @@ body {
 }
 
 .container {
+    /*Wrapper for central content with shadow and padding*/
     max-width: 600px;
     margin: 0 auto;
     background-color: white;
@@ -42,18 +46,21 @@ body {
 }
 
 h1 {
+    /*Centered title styling*/
     text-align: center;
     margin-bottom: 20px;
     color: var(--secondary);
 }
 
 .input-group {
+    /*Container for input & dropdown & button*/
     display: flex;
     margin-bottom: 20px;
     /* flex-wrap: wrap; */
 }
 
 #task-input {
+    /*Main task input box*/
     flex-grow: 1;
     padding: 10px;
     border: 1px solid #ddd;
@@ -62,6 +69,7 @@ h1 {
 }
 
 .priority-dropdown {
+    /*Dropdown for selecting priority*/
     padding: 10px;
     border: 1px solid #ddd;
     border-left: none;
@@ -70,6 +78,7 @@ h1 {
     cursor: pointer;
     appearance: none;
     background-color: white;
+    /*Inline SVG as a background icon*/
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 8px center;
@@ -78,25 +87,30 @@ h1 {
 }
 
 .priority-dropdown option {
+    /*Option styles inside the dropdown*/
     padding: 10px;
 }
 
 .priority-low {
+    /*Style for low priority label*/
     color: var(--priority-low);
     font-weight: bold;
 }
 
 .priority-medium {
+    /*Style for medium priority label*/
     color: var(--priority-medium);
     font-weight: bold;
 }
 
 .priority-high {
+    /*Style for high priority label*/
     color: var(--priority-high);
     font-weight: bold;
 }
 
 #add-task-btn {
+    /*Add task button styling*/
     background-color: var(--secondary);
     color: white;
     border: none;
@@ -108,14 +122,17 @@ h1 {
 }
 
 #add-task-btn:hover {
+    /*Hover effect for add button*/
     background-color: var(--secondary-light);
 }
 
 .search-container {
+    /*Wrapper for search input*/
     margin-bottom: 20px;
 }
 
 #search-input {
+    /*Search input field*/
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
@@ -124,12 +141,14 @@ h1 {
 }
 
 .filter-container {
+    /*Container for priority filter buttons*/
     display: flex;
     margin-bottom: 15px;
     gap: 5px;
 }
 
 .filter-btn {
+    /*Style for each filter button*/
     flex-grow: 1;
     padding: 6px 12px;
     border: 1px solid #ddd;
@@ -141,16 +160,19 @@ h1 {
 }
 
 .filter-btn.active {
+    /*Active filter button style*/
     background-color: var(--secondary);
     color: white;
     border-color: var(--secondart-light);
 }
 
 .task-list {
+    /*Remove bullet points*/
     list-style-type: none;
 }
 
 .task-item {
+    /*Task card styling*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -162,6 +184,7 @@ h1 {
     border-left: 5px solid transparent;
 }
 
+/*left border based on task priority*/
 .task-item.priority-low {
     border-left-color: var(--priority-low);
 }
@@ -174,8 +197,8 @@ h1 {
     border-left-color: var(--priority-high);
 }
 
-
 .priority-indicator {
+    /*Small colored dot indicating priority*/
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -195,38 +218,45 @@ h1 {
 }
 
 @keyframes fadeIn {
+    /*Animation for task appearance*/
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .task-content {
+    /*Flex wrapper for checkbox and text*/
     flex-grow: 1;
     display: flex;
     align-items: center;
 }
 
 .task-text {
+    /*Main task description text*/
     margin-left: 10px;
     flex-grow: 1;
     word-break: break-word;
 }
 
 .task-text.completed {
+    /*Style for completed task*/
     text-decoration: line-through;
     color: #888;
 }
 
 .task-checkbox {
+    /*Checkbox size and pointer*/
     width: 18px;
     height: 18px;
     cursor: pointer;
 }
 
 .task-actions {
+    /*Wrapper for edit and delete buttons*/
     display: flex;
 }
 
 .edit-btn, .delete-btn {
+    /*Button base styles*/
     background: none;
     border: none;
     cursor: pointer;
@@ -253,6 +283,7 @@ h1 {
 }
 
 .edit-mode input {
+    /*Input in edit mode*/
     flex-grow: 1;
     padding: 6px;
     border: 1px solid #ddd;
@@ -261,6 +292,7 @@ h1 {
 }
 
 .edit-mode select {
+    /*Dropdown in edit mode*/
     padding: 6px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -269,6 +301,7 @@ h1 {
 }
 
 .edit-mode .save-btn {
+    /*Save button in edit mode*/
     background-color: var(--success-color);
     color: white;
     border: none;
@@ -279,6 +312,7 @@ h1 {
 }
 
 .edit-mode .cancel-btn {
+    /*Cancel button in edit mode*/
     background-color: #888;
     color: white;
     border: none;
@@ -289,53 +323,55 @@ h1 {
 }
 
 .empty-state {
+    /*Message for no tasks available*/
     text-align: center;
     padding: 30px 0;
     color: #888;
 }
 
 .highlighted {
+    /*Highlight background (e.g. search match or active item)*/
     background-color: #fff3cd;
 }
 
-/* Responsive adjustments */
+/*Responsive styles for smaller screens*/
 @media (max-width: 480px) {
     .container {
         padding: 15px;
     }
-    
+
     .task-item {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .task-actions {
         margin-top: 10px;
         width: 100%;
         justify-content: flex-end;
     }
-    
+
     .input-group {
         flex-direction: column;
     }
-    
+
     #task-input, .priority-dropdown, #add-task-btn {
         width: 100%;
         border-radius: 4px;
         margin-bottom: 5px;
         border: 1px solid #ddd;
     }
-    
+
     .edit-mode {
         flex-direction: column;
     }
-    
+
     .edit-mode select {
         margin-left: 0;
         margin-top: 5px;
         width: 100%;
     }
-    
+
     .edit-mode .save-btn, .edit-mode .cancel-btn {
         margin-top: 5px;
     }

@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager - Authentication</title>
+    <!-- Link to the CSS file for login page styling -->
     <link rel="stylesheet" href="CSS/login.css">
+    <!-- Link to the JavaScript file for login page functionality -->
     <script src="JS/login.js" defer></script>
 </head>
 <body>
@@ -14,24 +16,31 @@
             <div class="auth-box login-box">
                 <div class="auth-form">
                     <h2 class="form-title">Log In</h2>
+                    <!-- Login form -->
                     <form id="login-form">
                         <div class="form-group">
+                            <!-- Username input field -->
                             <input type="text" class="form-control" placeholder="Enter Username" required>
                         </div>
                         <div class="form-group">
+                            <!-- Password input field -->
                             <input type="password" class="form-control" placeholder="Enter Password" required>
                         </div>
                         <div class="checkbox-group">
+                            <!-- Remember me checkbox -->
                             <input type="checkbox" id="remember-me">
                             <label for="remember-me">Remember Me</label>
                         </div>
+                        <!-- Submit button for login -->
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
                     <div class="auth-footer">
+                        <!-- Link to toggle between login and signup pages -->
                         <p>Don't have an account? <a href="#" onclick="togglePages()">Join Us Now!</a></p>
                     </div>
                 </div>
                 <div class="auth-img">
+                    <!-- Login page image -->
                     <img src="resources/welcome_back.jpeg" alt="Welcome Back" class="welcome-back-img">
                 </div>
             </div>
@@ -43,43 +52,54 @@
         <div class="auth-container signup-container">
             <div class="auth-box signup-box">
                 <div class="auth-img">
+                    <!-- Signup page image -->
                     <img src="resources/join_now.jpeg" alt="JOIN NOW" width="300">
                 </div>
                 <div class="auth-form">
                     <h2 class="form-title">Sign Up</h2>
+                    <!-- Signup form -->
                     <form id="signup-form">
                         <div class="form-group">
+                            <!-- First name input field -->
                             <input type="text" class="form-control" placeholder="Enter First Name" required>
                         </div>
                         <div class="form-group">
+                            <!-- Last name input field -->
                             <input type="text" class="form-control" placeholder="Enter Last Name" required>
                         </div>
                         <div class="form-group">
+                            <!-- Username input field -->
                             <input type="text" class="form-control" placeholder="Enter Username" required>
                         </div>
                         <div class="form-group">
+                            <!-- Email input field -->
                             <input type="email" class="form-control" placeholder="Enter Email" required>
                         </div>
                         <div class="form-group">
+                            <!-- Password input field -->
                             <input type="password" class="form-control" placeholder="Enter Password" required>
                         </div>
                         <div class="form-group">
+                            <!-- Confirm password input field -->
                             <input type="password" class="form-control" placeholder="Confirm Password" required>
                         </div>
                         <div class="checkbox-group">
+                            <!-- Terms and conditions checkbox -->
                             <input type="checkbox" id="terms">
                             <label for="terms">I agree to all terms</label>
                         </div>
+                        <!-- Submit button for signup -->
                         <button type="submit" class="btn btn-primary">Register</button>
                     </form>
                     <div class="auth-footer">
+                        <!-- Link to toggle between signup and login pages -->
                         <p>Already have an account? <a href="#" onclick="togglePages()">Sign In</a></p>
                     </div>
                 </div>
+                <!-- Image of our mascot -->
                 <img src="resources/star.jpeg" alt="Star Mascot" class="mascot mascot-top-right">
             </div>
         </div>
     </div>
 
-</body>
-</html>
+</

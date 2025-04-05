@@ -1,5 +1,5 @@
-
 :root {
+    /* Same as basic2 predefine the color variables to reuse throught the code*/
     --primary: #e91e63;
     --primary-light: #f48fb1;
     --secondary: #4CAF50;
@@ -14,6 +14,7 @@
 
 /* Header Styles */
 header {
+    /*Flexbox to align logo and date*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,6 +24,7 @@ header {
 }
 
 .logo {
+    /*Branding text style*/
     font-size: 2rem;
     font-weight: bold;
     color: var(--text-dark);
@@ -36,6 +38,7 @@ header {
 }
 
 .logo-image {
+    /* Ensure logo maintains its aspect ratio without distortion */
     max-width: 100%;
     height: auto; /* Maintain aspect ratio */
     object-fit: contain; /* This ensures the logo fits without distortion */
@@ -52,6 +55,7 @@ header {
 
 
 .date-display {
+    /*Align the date display in header*/
     margin-left: 1rem;
     text-align: right;
     font-size: 0.9rem;
@@ -59,12 +63,14 @@ header {
 
 /* Main Content */
 .main-container {
+    /*Wraps sidebar and content inside it*/
     display: flex;
     min-height: calc(100vh - 73px);
 }
 
 /* Sidebar */
 .sidebar {
+    /*navigation area*/
     width: var(--sidebar-width);
     background-color: var(--primary);
     color: var(--text-light);
@@ -72,6 +78,7 @@ header {
 }
 
 .user-info {
+    /*User section at the top of sidebar*/
     display: flex;
     align-items: center;
     padding: 0 1.5rem 1.5rem;
@@ -80,6 +87,7 @@ header {
 
 
 .user-avatar {
+    /*Circle avatar style*/
     width: 50px;
     height: 50px; /* Set a fixed height to match width */
     background-color: #ffd54f;
@@ -93,6 +101,7 @@ header {
 
 /* Style for the star mascot image */
 .mascot {
+    /*Ensures mascot image is contained and covers the entire avatar area*/
     width: 100%;
     height: 100%;
     object-fit: cover; /* Ensures the image covers the container properly */
@@ -101,25 +110,30 @@ header {
 
 
 .star-icon {
+    /*Icon styling inside avatar or next to text*/
     font-size: 1.5rem;
     color: #333;
 }
 
 .user-name {
+    /*Bold username*/
     font-weight: bold;
 }
 
 .user-email {
+    /*Smaller email text*/
     font-size: 0.8rem;
     opacity: 0.8;
 }
 
 .sidebar-menu {
+    /* Sidebar navigation list */
     list-style: none;
     margin-top: 2rem;
 }
 
 .sidebar-menu li {
+    /*Each sidebar navigation item*/
     padding: 0.8rem 1.5rem;
     display: flex;
     align-items: center;
@@ -127,20 +141,24 @@ header {
 }
 
 .sidebar-menu li:hover {
+    /*Hover effect*/
     background-color: rgba(255,255,255,0.1);
 }
 
 .sidebar-menu li.active {
+    /*highlight effect for active menu item*/
     background-color: rgba(255,255,255,0.2);
 }
 
 .sidebar-menu i {
+    /*Icon alignment inside menu items*/
     margin-right: 1rem;
     width: 24px;
     text-align: center;
 }
 
 .logout-button {
+    /*Log out button fixed at the bottom*/
     margin-top: auto;
     padding: 0.8rem 1.5rem;
     display: flex;
@@ -152,18 +170,21 @@ header {
 }
 
 .logout-button:hover {
+    /*Log out button hover effect*/
     background-color: rgba(255,255,255,0.1);
 }
 
 .logout-button i {
+    /*Log out icon styling*/
     margin-right: 1rem;
     width: 24px;
     text-align: center;
-    transform: rotate(180deg);
+    transform: rotate(180deg); /*Flipping the icon*/
 }
 
 /* Content Area */
 .content {
+    /*Main task display area*/
     flex-grow: 1;
     padding: 2rem;
     display: flex;
@@ -173,6 +194,7 @@ header {
 }
 
 .welcome-banner {
+    /*Greeting message banner*/
     margin-bottom: 2rem;
     font-size: 1.5rem;
     display: flex;
@@ -180,17 +202,20 @@ header {
 }
 
 .welcome-banner .star-icon {
+    /*Icon next to welcome message*/
     color: #ffd54f;
     margin-left: 0.5rem;
 }
 
 .task-categories {
+    /*Container for all task category boxes*/
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
 }
 
 .task-category {
+    /*Individual category card*/
     background-color: var(--secondary);
     border-radius: 8px;
     padding: 1.5rem;
@@ -202,6 +227,7 @@ header {
 }
 
 .category-header {
+    /*Title section inside task category*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -212,6 +238,7 @@ header {
 }
 
 .category-icon {
+    /*Icon inside task category*/
     width: 30px;
     height: 30px;
     background-color: rgba(255,255,255,0.3);
@@ -224,6 +251,7 @@ header {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /*Mobile screen adjustments*/
     .search-container {
         max-width: 300px;
         margin: 0 1rem;
@@ -256,6 +284,7 @@ header {
 
 
 @media (max-width: 600px) {
+    /*extra adjustments for mobile screens*/
     .search-container {
         display: none;
     }

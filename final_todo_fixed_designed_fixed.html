@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHOOSE - Modern Task Manager</title>
+    <!-- Links to the CSS style sheets -->
     <link rel="stylesheet" href="CSS/designed.css">
     <link rel="stylesheet" href="CSS/basic2.css">
+    <!-- Links to the JavaScript files -->
     <script src ="JS/script_designed.js" defer></script>
     <script src ="JS/script2.js" defer></script>
 </head>
 <body>
     <header>
+        <!-- App logo and title -->
         <div class="logo">
             <img src="resources/logo.png" alt="Logo" class="logo-image">
         </div>
+        <!-- Current day and date display -->
         <div class="date-display">
             <div id="day">Monday</div>
             <div id="date">03/24/2025</div>
@@ -21,7 +25,9 @@
     </header>
 
     <div class="main-container">
+        <!-- Sidebar section -->
         <aside class="sidebar">
+            <!-- User information display -->
             <div class="user-info">
                 <div class="user-avatar">
                     <img src="resources/star.jpeg" alt="Star Mascot" class="mascot mascot-bottom-left">
@@ -32,6 +38,7 @@
                 </div>
             </div>
 
+            <!-- Sidebar navigation menu -->
             <ul class="sidebar-menu">
                 <li><i>📊</i> Dashboard</li>
                 <li><i>⚠️</i> Vital Task</li>
@@ -41,16 +48,20 @@
                 <li><i>❓</i> Help</li>
             </ul>
 
+            <!-- Logout button -->
             <div class="logout-button">
                 <i>➡️</i> Logout
             </div>
         </aside>
 
+        <!-- Main content area -->
         <main class="content">
+            <!-- Welcome banner -->
             <div class="welcome-banner">
                 Welcome back, SuperStar <span class="star-icon">★</span>
             </div>
 
+            <!-- Task category section -->
             <!-- <div class="task-categories"> -->
             <div class="task-category">
                 <div class="category-header">
@@ -60,6 +71,7 @@
                 <div class="container">
                     <h1>TO-DO</h1>
                     
+                    <!-- Task input field with priority selector and the add button -->
                     <div class="input-group">
                         <input type="text" id="task-input" placeholder="Add a new task...">
                         <select id="priority-dropdown" class="priority-dropdown">
@@ -70,10 +82,12 @@
                         <button id="add-task-btn">Add</button>
                     </div>
                     
+                    <!-- Search bar -->
                     <div class="search-container">
                         <input type="text" id="search-input" placeholder="Search tasks...">
                     </div>
                     
+                    <!-- Priority filter buttons -->
                     <div class="filter-container">
                         <button class="filter-btn active" data-filter="all">All</button>
                         <button class="filter-btn" data-filter="low">Low Priority</button>
@@ -81,10 +95,9 @@
                         <button class="filter-btn" data-filter="high">High Priority</button>
                     </div>
                     
+                    <!-- Placeholder for task list items -->
                     <ul id="task-list" class="task-list"></ul>
                 </div>
-            </div>
-        </main>
             </div>
         </main>
     </div>

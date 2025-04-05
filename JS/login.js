@@ -1,4 +1,4 @@
-// Toggle between login and signup pages
+//Toggle between login and signup pages
 function togglePages() {
     const loginPage = document.getElementById('login-page');
     const signupPage = document.getElementById('signup-page');
@@ -12,33 +12,33 @@ function togglePages() {
     }
 }
 
-// Login form submission handler
+//Login form submission handling
 document.getElementById('login-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const username = this.elements[0].value;
     const password = this.elements[1].value;
     
-    // Check if credentials exist in local storage
+    //Check if the users credentials exist in local storage
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const user = users.find(u => u.username === username && u.password === password);
     
     if (user) {
-        // Store logged in status
+        //Store logged in status
         localStorage.setItem('currentUser', JSON.stringify(user));
         
-        // Redirect to tasks page
+        //Redirect to tasks page
         alert('Login successful! Redirecting to dashboard...');
-        // window.location.href = 'dashboard.html';
+        //window.location.href = 'dashboard.html';
     } else {
         alert('Invalid username or password!');
     }
 });
 
-// Signup form submission handler
+//Signup form submission handling
 document.getElementById('signup-form').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Get form values
+    //Get form values
     const firstName = this.elements[0].value;
     const lastName = this.elements[1].value;
     const username = this.elements[2].value;
@@ -47,7 +47,7 @@ document.getElementById('signup-form').addEventListener('submit', function(e) {
     const confirmPassword = this.elements[5].value;
     const agreeTerms = this.elements[6].checked;
     
-    // Validate form
+    //Validate form
     if (!agreeTerms) {
         alert('You must agree to the terms to continue!');
         return;
@@ -58,16 +58,16 @@ document.getElementById('signup-form').addEventListener('submit', function(e) {
         return;
     }
     
-    // Store user data in local storage
+    //Store user data in local storage
     const users = JSON.parse(localStorage.getItem('users')) || [];
     
-    // Check if username already exists
+    //Checks if the username already exists
     if (users.some(u => u.username === username)) {
         alert('Username already exists!');
         return;
     }
     
-    // Add new user
+    //Add a new user
     users.push({
         firstName,
         lastName,
