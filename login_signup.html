@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Authentication</title>
+    <link rel="stylesheet" href="CSS/login.css">
+    <script src="JS/login.js" defer></script>
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="login-page">
+        <div class="auth-container login-container">
+            <div class="auth-box login-box">
+                <div class="auth-form">
+                    <h2 class="form-title">Log In</h2>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Enter Password" required>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="remember-me">
+                            <label for="remember-me">Remember Me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="#" onclick="togglePages()">Join Us Now!</a></p>
+                    </div>
+                </div>
+                <div class="auth-img">
+                    <img src="resources/welcome_back.jpeg" alt="Welcome Back" class="welcome-back-img">
+                </div>
+                <img src="resources/star.jpeg" alt="Star Mascot" class="mascot mascot-bottom-left">
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Page -->
+    <div id="signup-page" style="display: none;">
+        <div class="auth-container signup-container">
+            <div class="auth-box signup-box">
+                <div class="auth-img">
+                    <img src="resources/join_now.jpeg" alt="JOIN NOW" width="300">
+                </div>
+                <div class="auth-form">
+                    <h2 class="form-title">Sign Up</h2>
+                    <form id="signup-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Enter Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Enter Password" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Confirm Password" required>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms">
+                            <label for="terms">I agree to all terms</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="#" onclick="togglePages()">Sign In</a></p>
+                    </div>
+                </div>
+                <img src="star.jpeg" alt="Star Mascot" class="mascot mascot-top-right">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
