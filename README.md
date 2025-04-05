@@ -71,7 +71,3 @@ The codebase is organized with separation between:
 ## 📬 Feedback
 
 Found a bug or have a suggestion? Feel free to contribute or open an issue on GitHub!
-
----
-
-Let me know if you want a version with GitHub markdown badges or licensing info added.
