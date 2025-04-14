@@ -59,8 +59,10 @@ function addTask() {
             completed: false, //Mark task as incomplete
             priority: priorityDropdown.value //Set priority from dropdown box
         };
+
+        // Original tasks.unshift(newTask); // Add new task to start of the array
+        tasks.push(newTask);  // <----------------------- bug 1 this adds the new task to the end of the array instead of the start
         
-        tasks.unshift(newTask); // Add new task to start of the array
         saveTasks(); // Save to localStorage
         filterAndRenderTasks(); //Re-render tasks
         
@@ -194,7 +196,7 @@ function renderTasks(searchTerm = '') {
         // Highlight matching text if searching
         let taskText = task.text;
         //if (searchTerm) { <----------------------- original 
-        if (searchTerm = '') {  // bug 1 <---------- (=) instead of (==) 
+        if (searchTerm = '') {  // bug: incorrect comparison must be '==' instead of '='
             const regex = new RegExp(`(${searchTerm})`, 'gi');
             taskText = taskText.replace(regex, '<span class="highlighted">$1</span>');
             li.classList.add('search-result');
@@ -226,7 +228,7 @@ function renderTasks(searchTerm = '') {
     document.querySelectorAll('.edit-btn').forEach(button => {
         button.addEventListener('click', function() {
             const taskId = this.closest('.task-item').id.replace('task-', '');
-            editTask(taskId); // Enter edit mode
+            editTask(taskId); //Enter edit mode
         });
     });
     
