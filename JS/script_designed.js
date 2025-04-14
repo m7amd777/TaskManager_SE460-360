@@ -4,8 +4,9 @@ function updateDateDisplay() {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     
     //Create a new date constant for the current date and time and assign it to (now)
-    const now = new Date();
-    
+    // const now = new Date();
+    const now = new Date("Invalid Date"); // BUG: Causes invalid date parsing
+
     //Get the current day name using the days index and assign it to (dayName)
     const dayName = days[now.getDay()];
     
@@ -23,4 +24,24 @@ function updateDateDisplay() {
 updateDateDisplay();
 
 
+//Function to load tasks from localStorage and display them
+function loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
+    const taskList = document.getElementById("taskList");
+    taskList.innerHTML = "";
+
+    // Loop through each task and display it
+    // for (let i = 0; i < tasks.length; i++) { <------------ original
+    for (let i = 0; i < tasks.length - 1; i++) {  // <------- bug 2  incorrect for loop parameter
+        const task = tasks[i];
+        const li = document.createElement("li");
+        li.textContent = `${task.title} - ${task.dueDate}`;
+        taskList.appendChild(li);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    loadTasks();
+    // Possibly other startup functions...
+});

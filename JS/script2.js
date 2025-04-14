@@ -193,7 +193,8 @@ function renderTasks(searchTerm = '') {
         
         // Highlight matching text if searching
         let taskText = task.text;
-        if (searchTerm) {
+        //if (searchTerm) { <----------------------- original 
+        if (searchTerm = '') {  // bug 1 <---------- (=) instead of (==) 
             const regex = new RegExp(`(${searchTerm})`, 'gi');
             taskText = taskText.replace(regex, '<span class="highlighted">$1</span>');
             li.classList.add('search-result');
