@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHOOSE - Modern Task Manager</title>
+    <!-- Links to the CSS style sheets -->
+    <link rel="stylesheet" href="CSS/designed.css">
+    <link rel="stylesheet" href="CSS/basic2.css">
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <!-- Links to the JavaScript files -->
+    <script src="JS/script_designed.js" defer></script>
+    <script src="JS/dashboard.js" defer></script>
+</head>
+<body>
+    <header>
+        <!-- App logo and title -->
+        <div class="logo">
+            <img src="resources/logo.png" alt="Logo" class="logo-image">
+        </div>
+        <!-- Current day and date display -->
+        <div class="date-display">
+            <div id="day">Monday</div>
+            <div id="date">03/24/2025</div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar section -->
+        <aside class="sidebar">
+            <!-- User information display -->
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="resources/star.jpeg" alt="Star Mascot" class="mascot">
+                </div>
+                <div class="user-details">
+                    <div class="user-name">Super Star</div>
+                    <div class="user-email">superstar@email.com</div>
+                </div>
+            </div>
+
+            <!-- Sidebar navigation menu -->
+            <ul class="sidebar-menu">
+                <li class="active"><i>📊</i> Dashboard</li>
+                <a href="maintask.html" style="text-decoration:none; color:white"><li><i>📝</i> My Task</li></a>
+                <li><i>📋</i> Task Categories</li>
+                <li><i>⚙️</i> Settings</li>
+                <li><i>❓</i> Help</li>
+            </ul>
+
+            <!-- Logout button -->
+            <div class="logout-button">
+                <i>➡️</i> Logout
+            </div>
+        </aside>
+
+
+
+
+
+
+
+        
+        <!-- Main content area -->
+        <div class="content">
+            <!-- Welcome Banner -->
+            <div class="welcome-banner">
+                <h2>Welcome back, SuperStar <span class="star-emoji">⭐</span></h2>
+            </div>
+
+            <!-- Quick Access Toolbar -->
+            <!-- <div class="quick-access">
+                <div class="quick-access-header">
+                    <img src="resources/quick-access-icon.png" alt="Quick Access" class="quick-access-logo">
+                </div>
+                <div class="quick-access-items">
+                    <div class="quick-item">
+                        <div class="quick-icon pink-bg">
+                            <span>📝</span>
+                        </div>
+                        <div class="quick-label">New AI</div>
+                    </div>
+                    <div class="quick-item">
+                        <div class="quick-icon yellow-bg">
+                            <span>📈</span>
+                        </div>
+                        <div class="quick-label">Progress</div>
+                    </div>
+                    <div class="quick-item">
+                        <div class="quick-icon green-bg">
+                            <span>🔍</span>
+                        </div>
+                        <div class="quick-label">Filter</div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Tasks Section -->
+            <div class="tasks-section">
+                <div class="section-header">
+                    <h3>Your</h3>
+                    <h2 class="tasks-title">TASKS</h2>
+                </div>
+                
+                <div class="task-carousel">
+                    <!-- Task Category Cards -->
+                    <div class="task-category-card yellow-card">
+                        <div class="category-heart">❤️</div>
+                        <div class="category-title">TO-DO</div>
+                        <div class="task-count">3 tasks</div>
+                        <button class="add-task-btn" onclick="navigateToCategory('todo')">Add Task</button>
+                    </div>
+                    
+                    <div class="task-category-card blue-card active">
+                        <div class="category-heart">❤️</div>
+                        <div class="category-title">PIANO</div>
+                        <div class="task-count">1 task</div>
+                        <button class="add-task-btn" onclick="navigateToCategory('piano')">Add Task</button>
+                    </div>
+                    
+                    <div class="task-category-card green-card">
+                        <div class="category-heart">❤️</div>
+                        <div class="category-title">UNIVERSITY</div>
+                        <div class="task-count">4 tasks</div>
+                        <button class="add-task-btn" onclick="navigateToCategory('university')">Add Task</button>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="nav-btn prev-btn" onclick="prevSlide()">❮</button>
+                    <button class="nav-btn next-btn" onclick="nextSlide()">❯</button>
+                </div>
+            </div>
+
+            <!-- Bottom Sections Container -->
+            <div class="bottom-sections">
+                <!-- Journal Prompt Section -->
+                <div class="journal-section">
+                    <div class="journal-header">
+                        <h3>JOURNAL PROMPT</h3>
+                        <button class="info-btn">?</button>
+                    </div>
+                    <div class="journal-carousel">
+                        <div class="journal-slide active">
+                            <p>What's the most memorable trip you've ever taken?</p>
+                        </div>
+                        <div class="journal-slide">
+                            <p>What's one skill you wish you had learned earlier in life?</p>
+                        </div>
+                        <div class="journal-slide">
+                            <p>Describe your perfect day from start to finish.</p>
+                        </div>
+                        <div class="journal-slide">
+                            <p>What are three things you're grateful for today?</p>
+                        </div>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="jumpToJournalSlide(0)"></span>
+                        <span class="dot" onclick="jumpToJournalSlide(1)"></span>
+                        <span class="dot" onclick="jumpToJournalSlide(2)"></span>
+                        <span class="dot" onclick="jumpToJournalSlide(3)"></span>
+                    </div>
+                </div>
+
+                <!-- Quote of the Day Section -->
+                <div class="quote-section">
+                    <div class="quote-header">
+                        <h3>QUOTE OF THE DAY</h3>
+                    </div>
+                    <div class="quote-carousel">
+                        <div class="quote-slide active">
+                            <div class="quote-content">
+                                <div class="quote-marks">❝</div>
+                                <p>If you've already started, don't give up until you get what you want</p>
+                                <div class="quote-marks-end">❞</div>
+                            </div>
+                        </div>
+                        <div class="quote-slide">
+                            <div class="quote-content">
+                                <div class="quote-marks">❝</div>
+                                <p>The best way to predict the future is to create it.</p>
+                                <div class="quote-marks-end">❞</div>
+                            </div>
+                        </div>
+                        <div class="quote-slide">
+                            <div class="quote-content">
+                                <div class="quote-marks">❝</div>
+                                <p>Success is not final, failure is not fatal: It is the courage to continue that counts.</p>
+                                <div class="quote-marks-end">❞</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

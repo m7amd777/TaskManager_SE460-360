@@ -1,0 +1,406 @@
+/* Dashboard Specific Styles */
+
+/* Content Area Styles */
+.content {
+    padding: 2rem;
+    flex-grow: 1;
+    background-color: var(--background);
+    overflow-y: auto;
+}
+
+/* Welcome Banner Styles */
+.welcome-banner {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.welcome-banner h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.star-emoji {
+    font-size: 1.8rem;
+    margin-left: 0.5rem;
+}
+
+/* Quick Access Toolbar Styles */
+.quick-access {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.quick-access-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.quick-access-logo {
+    height: 30px;
+    width: auto;
+}
+
+.quick-access-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+}
+
+.quick-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.quick-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.pink-bg {
+    background-color: #f48fb1;
+}
+
+.yellow-bg {
+    background-color: #fff59d;
+}
+
+.green-bg {
+    background-color: #a5d6a7;
+}
+
+.quick-label {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+/* Tasks Section Styles */
+.tasks-section {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section-header {
+    margin-bottom: 1.5rem;
+}
+
+.section-header h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 0;
+}
+
+.tasks-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #e91e63;
+    margin-top: 0;
+}
+
+.task-carousel {
+    display: flex;
+    gap: 1rem;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.task-category-card {
+    min-width: 200px;
+    height: 180px;
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.task-category-card:hover {
+    transform: translateY(-5px);
+}
+
+.yellow-card {
+    background-color: #ffeb3b;
+}
+
+.blue-card {
+    background-color: #00b0ff;
+}
+
+.green-card {
+    background-color: #4caf50;
+}
+
+.category-heart {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.2rem;
+}
+
+.category-title {
+    margin-top: 2.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.task-count {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: auto;
+}
+
+.add-task-btn {
+    background-color: white;
+    color: var(--text-dark);
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.add-task-btn::before {
+    content: "+";
+    font-size: 1.2rem;
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.nav-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+/* Bottom Sections Layout */
+.bottom-sections {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Journal Prompt Section Styles */
+.journal-section {
+    flex: 1;
+    background-color: #00b0ff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: white;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.journal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.journal-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.info-btn {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: white;
+    color: #00b0ff;
+    border: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.journal-carousel {
+    position: relative;
+    height: 120px;
+    overflow: hidden;
+}
+
+.journal-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: center;
+}
+
+.journal-slide.active {
+    opacity: 1;
+}
+
+.journal-slide p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0 1rem;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: white;
+}
+
+/* Quote of the Day Section Styles */
+.quote-section {
+    flex: 1;
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.quote-header {
+    margin-bottom: 1rem;
+}
+
+.quote-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.quote-carousel {
+    position: relative;
+    height: 150px;
+    overflow: hidden;
+}
+
+.quote-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: center;
+}
+
+.quote-slide.active {
+    opacity: 1;
+}
+
+.quote-content {
+    position: relative;
+    padding: 1rem;
+    color: var(--text-dark);
+    width: 100%;
+}
+
+.quote-marks, .quote-marks-end {
+    color: #4caf50;
+    font-size: 2rem;
+    position: absolute;
+}
+
+.quote-marks {
+    top: -10px;
+    left: 0;
+}
+
+.quote-marks-end {
+    bottom: -20px;
+    right: 0;
+}
+
+.quote-content p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .bottom-sections {
+        flex-direction: column;
+    }
+    
+    .task-carousel {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+    }
+    
+    .quick-access-items {
+        flex-wrap: wrap;
+    }
+    
+    .quick-item {
+        margin-bottom: 1rem;
+    }
+}

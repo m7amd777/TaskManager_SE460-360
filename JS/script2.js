@@ -24,6 +24,10 @@ function loadTasks() {
 }
 
 // Initialize the app
+
+
+
+
 loadTasks(); //Load tasks when page is loaded
 renderTasks(); //display the loaded tasks
 
