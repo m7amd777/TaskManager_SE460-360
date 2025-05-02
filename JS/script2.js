@@ -16,7 +16,7 @@ const users = JSON.parse(localStorage.getItem("users")) || {};
 
 if (!currentUser || !users[currentUser]) {
   // No valid user logged in, redirect to login
-  window.location.href = "login.html";
+  window.location.href = "login_signup.html";
 } else {
   // Valid user logged in
   const userData = users[currentUser];
