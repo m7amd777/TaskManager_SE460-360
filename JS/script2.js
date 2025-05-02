@@ -5,12 +5,14 @@ const addTaskBtn = document.getElementById('add-task-btn'); //Button to add a ne
 const searchInput = document.getElementById('search-input'); //Input field to search and filter tasks
 const taskList = document.getElementById('task-list'); //UI element to display the list of tasks
 const filterButtons = document.querySelectorAll('.filter-btn'); //Buttons for filtering by priority
+const logoutButton = document.querySelector('.logout-button'); // Select the logout button
 
 // Task array to store all tasks
 let tasks = [];
 let currentFilter = 'all'; //Default filter as the page loads
 const currentUser = localStorage.getItem("currentUser");
 const users = JSON.parse(localStorage.getItem("users")) || {};
+
 
 if (!currentUser || !users[currentUser]) {
   // No valid user logged in, redirect to login
@@ -33,7 +35,7 @@ function loadTasks() {
 
     if (!currentUser || !users[currentUser]) {
         alert("No user logged in. Redirecting to login.");
-        window.location.href = "login.html";
+        window.location.href = "login_signup.html";
         return;
     }
 
@@ -273,3 +275,12 @@ function saveTasks() {
     }
 }
 
+
+// Add event listener for logout
+logoutButton.addEventListener('click', function () {
+    // Clear the current user from local storage
+    localStorage.removeItem('currentUser');
+
+    // Redirect to the login page
+    window.location.href = 'login_signup.html';
+});
