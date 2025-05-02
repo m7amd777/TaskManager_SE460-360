@@ -9,19 +9,37 @@ const filterButtons = document.querySelectorAll('.filter-btn'); //Buttons for fi
 // Task array to store all tasks
 let tasks = [];
 let currentFilter = 'all'; //Default filter as the page loads
+const currentUser = localStorage.getItem("currentUser");
+const users = JSON.parse(localStorage.getItem("users")) || {};
+
+if (!currentUser || !users[currentUser]) {
+  // No valid user logged in, redirect to login
+  window.location.href = "login.html";
+} else {
+  // Valid user logged in
+  const userData = users[currentUser];
+  const tasks = userData.tasks;
+
+  // Proceed with showing user's tasks
+  console.log("Tasks for", currentUser, ":", tasks);
+}
+
+
 
 // Load tasks from local storage
 function loadTasks() {
-    try {
-        const savedTasks = localStorage.getItem('tasks');
-        if (savedTasks) {
-            tasks = JSON.parse(savedTasks);
-        }
-    } catch (e) {
-        console.error('Error loading tasks from local storage:', e); //Error handling when retrieving tasks
-        tasks = [];
+    const currentUser = localStorage.getItem('currentUser');
+    const users = JSON.parse(localStorage.getItem('users')) || {};
+
+    if (!currentUser || !users[currentUser]) {
+        alert("No user logged in. Redirecting to login.");
+        window.location.href = "login.html";
+        return;
     }
+
+    tasks = users[currentUser].tasks || [];
 }
+
 
 // Initialize the app
 loadTasks(); //Load tasks when page is loaded
@@ -240,8 +258,18 @@ function renderTasks(searchTerm = '') {
 // Save tasks to local storage
 function saveTasks() {
     try {
-        localStorage.setItem('tasks', JSON.stringify(tasks)); //Convert array to string then save
+        const currentUser = localStorage.getItem('currentUser');
+        const users = JSON.parse(localStorage.getItem('users')) || {};
+
+        if (!currentUser || !users[currentUser]) {
+            console.error("Cannot save: No user or user data found.");
+            return;
+        }
+
+        users[currentUser].tasks = tasks;
+        localStorage.setItem('users', JSON.stringify(users));
     } catch (e) {
-        console.error('Error saving tasks to local storage:', e); //Handle any save errors
+        console.error('Error saving tasks to local storage:', e);
     }
 }
+
