@@ -12,6 +12,11 @@ function togglePages() {
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.hash === '#signup') {
+        togglePages();
+    }
+});
 // Login form submission handling
 document.getElementById('login-form').addEventListener('submit', function(e) {
     e.preventDefault();

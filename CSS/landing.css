@@ -1,0 +1,131 @@
+/* reset & base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; font-family: sans-serif; }
+
+/* header */
+header {
+  position: absolute;
+  top: 20px; left: 20px; right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+.logo {
+  background: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 24px;
+}
+.nav-btn {
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.nav-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+.nav-btn.primary {
+  background: #ffd600;
+}
+.nav-btn.primary:hover {
+  background: #ffca00;
+}
+
+/* overall layout */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* left panel */
+.left-panel {
+  flex: 6;
+  background: #db0a7c;
+  color: #fff;
+  padding: 0 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.signup-cta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.signup-cta h2 {
+  font-size: 32px;
+  margin-right: 10px;
+}
+.pill {
+  background: #ffd600;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+}
+.big-choose h1 {
+  font-size: 120px;
+  position: relative;
+  line-height: 1;
+}
+.and-do {
+  background: #4caf50;
+  color: #000;
+  font-size: 48px;
+  padding: 4px 8px;
+  position: absolute;
+  top: 10px;
+}
+
+/* right panel */
+.right-panel {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+}
+.quote {
+  flex: 3;
+  background: #00bcd4;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+}
+.quote blockquote {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.quote cite {
+  font-size: 20px;
+}
+.next-slide {
+  flex: 2;
+  background: #4caf50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrow-btn {
+  background: #ffd600;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.arrow-btn:hover {
+  transform: scale(1.1);
+}
