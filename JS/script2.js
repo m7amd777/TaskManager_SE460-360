@@ -13,14 +13,13 @@ let currentFilter = 'all'; //Default filter as the page loads
 const currentUser = localStorage.getItem("currentUser");
 const users = JSON.parse(localStorage.getItem("users")) || {};
 
-
 if (!currentUser || !users[currentUser]) {
   // No valid user logged in, redirect to login
   window.location.href = "login_signup.html";
 } else {
   // Valid user logged in
-  const userData = users[currentUser];
-  const tasks = userData.tasks;
+//   const userData = users[currentUser];
+  const tasks = users[currentUser].tasks;
 
   // Proceed with showing user's tasks
   console.log("Tasks for", currentUser, ":", tasks);
@@ -89,7 +88,8 @@ function addTask() {
             id: Date.now().toString(), //Generate a unique task ID by using current timestamp and using at as the ID
             text: taskText, //Task description
             completed: false, //Mark task as incomplete
-            priority: priorityDropdown.value //Set priority from dropdown box
+            priority: priorityDropdown.value,
+            categoryId: "main" //Set priority from dropdown box
         };
         
         tasks.unshift(newTask); // Add new task to start of the array

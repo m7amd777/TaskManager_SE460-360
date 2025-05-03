@@ -22,11 +22,13 @@ let categories = [];
 let currentCategory = null;
 let currentUser = null;
 let users = {};
+let tasks = [];
 
 // Initialize the app
 function init() {
     loadUser();
     loadCategories();
+    loadTasks();
     renderCategories();
     setupEventListeners();
     updateUserInfo();
@@ -75,6 +77,21 @@ function saveCategories() {
     
     users[currentUser].categories = categories;
     localStorage.setItem('users', JSON.stringify(users));
+}
+
+// Save tasks to local storage (unified function)
+function saveTasks() {
+    if (!currentUser || !users[currentUser]) return;
+
+    users[currentUser].tasks = tasks; // Update tasks for the current user
+    localStorage.setItem('users', JSON.stringify(users)); // Save back to local storage
+}
+
+// Load tasks from local storage
+function loadTasks() {
+    if (!currentUser || !users[currentUser]) return;
+
+    tasks = users[currentUser].tasks || [];
 }
 
 // Set up event listeners
@@ -165,7 +182,7 @@ function renderCategories(searchTerm = '') {
         categoryElement.style.borderLeftColor = category.color;
         
         // Get task count for this category
-        const taskCount = category.tasks ? category.tasks.length : 0;
+        const taskCount = tasks.filter(task => task.categoryId === category.id).length;
         
         categoryElement.innerHTML = `
             <div class="category-details">
@@ -271,7 +288,9 @@ function editCategory(category, categoryElement) {
 function deleteCategory(categoryId) {
     if (confirm('Are you sure you want to delete this category? All tasks in this category will be deleted.')) {
         categories = categories.filter(category => category.id !== categoryId);
+        tasks = tasks.filter(task => task.categoryId !== categoryId);
         saveCategories();
+        saveTasks();
         renderCategories(categorySearchInput.value.toLowerCase().trim());
     }
 }
@@ -311,37 +330,23 @@ function showCategoriesView() {
 // Add task to current category
 function addTaskToCategory() {
     if (!currentCategory) return;
-    
+
     const taskText = categoryTaskInput.value.trim();
     const priority = categoryPriorityDropdown.value;
-    
+
     if (taskText) {
         const newTask = {
             id: Date.now().toString(),
             text: taskText,
             completed: false,
             priority: priority,
-            categoryId: currentCategory.id
+            categoryId: currentCategory.id // Link task to category
         };
-        
-        // Add to category's tasks array
-        categories = categories.map(category => {
-            if (category.id === currentCategory.id) {
-                if (!category.tasks) category.tasks = [];
-                return { 
-                    ...category, 
-                    tasks: [newTask, ...category.tasks] 
-                };
-            }
-            return category;
-        });
-        
-        // Update current category reference
-        currentCategory = categories.find(c => c.id === currentCategory.id);
-        
-        saveCategories();
-        renderCategoryTasks();
-        
+
+        tasks.unshift(newTask); // Add task to centralized tasks array
+        saveTasks(); // Save tasks to local storage
+        renderCategoryTasks(); // Re-render tasks for the current category
+
         // Clear input
         categoryTaskInput.value = '';
         categoryTaskInput.focus();
@@ -351,27 +356,27 @@ function addTaskToCategory() {
 // Render tasks for current category
 function renderCategoryTasks() {
     if (!currentCategory) return;
-    
+
     categoryTaskList.innerHTML = '';
-    
-    // Get tasks for this category
-    const tasks = currentCategory.tasks || [];
-    
+
+    // Filter tasks for the current category
+    const categoryTasks = tasks.filter(task => task.categoryId === currentCategory.id);
+
     // Show empty state if no tasks
-    if (tasks.length === 0) {
+    if (categoryTasks.length === 0) {
         const emptyState = document.createElement('div');
         emptyState.className = 'empty-state';
         emptyState.textContent = `No tasks in ${currentCategory.name} yet. Add a task to get started!`;
         categoryTaskList.appendChild(emptyState);
         return;
     }
-    
+
     // Render each task
-    tasks.forEach(task => {
+    categoryTasks.forEach(task => {
         const li = document.createElement('li');
         li.className = `task-item priority-${task.priority}`;
         li.id = `category-task-${task.id}`;
-        
+
         li.innerHTML = `
             <div class="task-content">
                 <div class="priority-indicator ${task.priority}"></div>
@@ -383,67 +388,53 @@ function renderCategoryTasks() {
                 <button class="delete-btn">🗑️</button>
             </div>
         `;
-        
+
         categoryTaskList.appendChild(li);
     });
-    
+
     // Add event listeners for tasks
     document.querySelectorAll('.task-checkbox').forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
+        checkbox.addEventListener('change', function () {
             const taskId = this.closest('.task-item').id.replace('category-task-', '');
-            toggleCategoryTaskCompletion(taskId);
+            toggleTaskCompletion(taskId);
         });
     });
-    
+
     document.querySelectorAll('.edit-btn').forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const taskId = this.closest('.task-item').id.replace('category-task-', '');
-            editCategoryTask(taskId);
+            editTask(taskId);
         });
     });
-    
+
     document.querySelectorAll('.delete-btn').forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const taskId = this.closest('.task-item').id.replace('category-task-', '');
-            deleteCategoryTask(taskId);
+            deleteTask(taskId);
         });
     });
 }
 
 // Toggle task completion status
-function toggleCategoryTaskCompletion(taskId) {
-    if (!currentCategory) return;
-    
-    categories = categories.map(category => {
-        if (category.id === currentCategory.id) {
-            const updatedTasks = category.tasks.map(task => {
-                if (task.id === taskId) {
-                    return { ...task, completed: !task.completed };
-                }
-                return task;
-            });
-            
-            return { ...category, tasks: updatedTasks };
+function toggleTaskCompletion(taskId) {
+    tasks = tasks.map(task => {
+        if (task.id === taskId) {
+            return { ...task, completed: !task.completed };
         }
-        return category;
+        return task;
     });
-    
-    // Update current category reference
-    currentCategory = categories.find(c => c.id === currentCategory.id);
-    
-    saveCategories();
+
+    saveTasks();
     renderCategoryTasks();
 }
 
-// Edit category task
-function editCategoryTask(taskId) {
-    if (!currentCategory) return;
-    
+// Edit task
+function editTask(taskId) {
     const taskElement = document.getElementById(`category-task-${taskId}`);
-    const task = currentCategory.tasks.find(t => t.id === taskId);
-    
+    const task = tasks.find(t => t.id === taskId);
+
     if (!taskElement || !task) return;
-    
+
     // Replace task HTML with editable version
     taskElement.innerHTML = `
         <div class="task-content edit-mode">
@@ -457,72 +448,49 @@ function editCategoryTask(taskId) {
             <button class="cancel-btn">Cancel</button>
         </div>
     `;
-    
+
     const editInput = taskElement.querySelector('.edit-input');
     const editPriorityDropdown = taskElement.querySelector('.edit-priority-dropdown');
     const saveBtn = taskElement.querySelector('.save-btn');
     const cancelBtn = taskElement.querySelector('.cancel-btn');
-    
+
     editInput.focus();
-    
+
     saveBtn.addEventListener('click', () => {
-        saveCategoryTaskEdit(taskId, editInput.value.trim(), editPriorityDropdown.value);
+        saveTaskEdit(taskId, editInput.value.trim(), editPriorityDropdown.value);
     });
-    
+
     cancelBtn.addEventListener('click', () => {
         renderCategoryTasks();
     });
-    
+
     editInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
-            saveCategoryTaskEdit(taskId, editInput.value.trim(), editPriorityDropdown.value);
+            saveTaskEdit(taskId, editInput.value.trim(), editPriorityDropdown.value);
         }
     });
 }
 
-// Save edited category task
-function saveCategoryTaskEdit(taskId, newText, newPriority) {
-    if (!currentCategory || !newText) return;
-    
-    categories = categories.map(category => {
-        if (category.id === currentCategory.id) {
-            const updatedTasks = category.tasks.map(task => {
-                if (task.id === taskId) {
-                    return { ...task, text: newText, priority: newPriority };
-                }
-                return task;
-            });
-            
-            return { ...category, tasks: updatedTasks };
+// Save edited task
+function saveTaskEdit(taskId, newText, newPriority) {
+    if (!newText) return;
+
+    tasks = tasks.map(task => {
+        if (task.id === taskId) {
+            return { ...task, text: newText, priority: newPriority };
         }
-        return category;
+        return task;
     });
-    
-    // Update current category reference
-    currentCategory = categories.find(c => c.id === currentCategory.id);
-    
-    saveCategories();
+
+    saveTasks();
     renderCategoryTasks();
 }
 
-// Delete category task
-function deleteCategoryTask(taskId) {
-    if (!currentCategory) return;
-    
-    categories = categories.map(category => {
-        if (category.id === currentCategory.id) {
-            return {
-                ...category,
-                tasks: category.tasks.filter(task => task.id !== taskId)
-            };
-        }
-        return category;
-    });
-    
-    // Update current category reference
-    currentCategory = categories.find(c => c.id === currentCategory.id);
-    
-    saveCategories();
+// Delete task
+function deleteTask(taskId) {
+    tasks = tasks.filter(task => task.id !== taskId);
+
+    saveTasks();
     renderCategoryTasks();
 }
 
