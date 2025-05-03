@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHOOSE - Task Categories</title>
+    <!-- Links to the CSS style sheets -->
+    <link rel="stylesheet" href="CSS/designed.css">
+    <link rel="stylesheet" href="CSS/categories.css">
+    <link rel="stylesheet" href="CSS/basic2.css">
+    <link rel="stylesheet" href="CSS/integration.css">
+
+    
+    <!-- Links to the JavaScript files -->
+    <script src="JS/script_designed.js" defer></script>
+    <script src="JS/categories.js" defer></script>
+    <script src="JS/scriptIntegration.js" defer></script>
+</head>
+<body>
+    <header>
+        <!-- App logo and title -->
+        <div class="logo">
+            <img src="resources/logo.png" alt="Logo" class="logo-image">
+        </div>
+        <!-- Current day and date display -->
+        <div class="date-display">
+            <div id="day">Monday</div>
+            <div id="date">03/24/2025</div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar section -->
+        <aside class="sidebar">
+            <!-- User information display -->
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="resources/star.jpeg" alt="Star Mascot" class="mascot mascot-bottom-left">
+                </div>
+                <div class="user-details">
+                    <div class="user-name">Super Star</div>
+                    <div class="user-email">superstar@email.com</div>
+                </div>
+            </div>
+
+            <!-- Sidebar navigation menu -->
+            <ul class="sidebar-menu">
+                <li><i>📊</i> Dashboard</li>
+                <li><i>⚠️</i> Vital Task</li>
+                <li><i>📝</i> My Task</li>
+                <li class="active"><i>📋</i> Task Categories</li>
+                <li><i>⚙️</i> Settings</li>
+                <li><i>❓</i> Help</li>
+            </ul>
+
+            <!-- Logout button -->
+            <div class="logout-button">
+                <i>➡️</i> Logout
+            </div>
+        </aside>
+
+        <!-- Main content area -->
+        <main class="content">
+            <!-- Welcome banner -->
+            <div class="welcome-banner">
+                Manage Your Task Categories <span class="star-icon">★</span>
+            </div>
+
+            <!-- Task category section -->
+            <div id= "task-category-section" class="task-category">
+                <div class="category-header">
+                    <span>CREATE CATEGORY</span>
+                    <div class="category-icon">🏷️</div>
+                </div>
+                <div class="container">
+                    <h1>NEW CATEGORY</h1>
+                    
+                    <!-- Category input form -->
+                    <div class="input-group">
+                        <input type="text" id="category-name" placeholder="Enter category name...">
+                        <div class="color-selector">
+                            <label for="category-color">Color:</label>
+                            <input type="color" id="category-color" value="#4CAF50">
+                        </div>
+                        <button id="add-category-btn">Add Category</button>
+                    </div>
+                    
+                    <!-- Search bar for categories -->
+                    <div class="search-container">
+                        <input type="text" id="category-search" placeholder="Search categories...">
+                    </div>
+                    
+                    <!-- Category list container -->
+                    <div class="categories-container">
+                        <h2>Your Categories</h2>
+                        <div id="categories-list" class="categories-list">
+                            <!-- Categories will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasks for selected category section -->
+            <div id="category-tasks-section" class="task-category" style="display: none;">
+                <div class="category-header" id="selected-category-header">
+                    <span id="selected-category-name">CATEGORY TASKS</span>
+                    <div class="category-icon" id="selected-category-icon">📝</div>
+                </div>
+                <div class="container" >
+                    <h1 id="selected-category-title">TASKS</h1>
+                    
+                    <!-- Add task to this category -->
+                    <div class="input-group">
+                        <input type="text" id="category-task-input" placeholder="Add a new task to this category...">
+                        <select id="category-priority-dropdown" class="priority-dropdown">
+                            <option value="low" class="priority-low">Low Priority</option>
+                            <option value="medium" class="priority-medium">Medium Priority</option>
+                            <option value="high" class="priority-high">High Priority</option>
+                        </select>
+                        <button id="add-category-task-btn">Add</button>
+                    </div>
+                    
+                    <!-- Task list for this category -->
+                    <ul id="category-task-list" class="task-list"></ul>
+                    
+                    <!-- Back button -->
+                    <div class="back-container">
+                        <button id="back-to-categories-btn" class="back-button">← Back to Categories</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

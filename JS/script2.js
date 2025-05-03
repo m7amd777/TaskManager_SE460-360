@@ -46,6 +46,18 @@ function loadTasks() {
 // Initialize the app
 loadTasks(); //Load tasks when page is loaded
 renderTasks(); //display the loaded tasks
+updateUserInfo();
+
+function updateUserInfo() {
+    const userNameElement = document.querySelector('.user-name');
+    const userEmailElement = document.querySelector('.user-email');
+    
+    if (currentUser && users[currentUser]) {
+        userNameElement.textContent = users[currentUser].username || "User";
+        userEmailElement.textContent = users[currentUser].email || currentUser;
+    }
+}
+
 
 // Event listeners
 addTaskBtn.addEventListener('click', addTask); //Add task on button click

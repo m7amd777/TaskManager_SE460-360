@@ -1,0 +1,197 @@
+/* Task Categories Specific Styles */
+
+/* Color selector styling */
+.color-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-left: none;
+    padding: 0 10px;
+    background-color: white;
+}
+
+.color-selector label {
+    margin-right: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+#category-color {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Categories list styling */
+.categories-container {
+    margin-top: 20px;
+}
+
+.categories-container h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.categories-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.category-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 5px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.category-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.category-item-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    word-break: break-word;
+}
+
+.category-item-count {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.category-item-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.edit-category-btn, .delete-category-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 2px;
+    margin-left: 5px;
+}
+
+.edit-category-btn:hover {
+    color: var(--success-color);
+}
+
+.delete-category-btn:hover {
+    color: var(--danger-color);
+}
+
+/* Category Edit Mode */
+.category-edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.category-edit-form input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.category-edit-form input[type="color"] {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border: none;
+}
+
+.category-edit-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.save-category-btn, .cancel-edit-btn {
+    padding: 3px 8px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.save-category-btn {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.cancel-edit-btn {
+    background-color: #888;
+    color: white;
+}
+
+/* Back button styling */
+.back-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.back-button {
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: var(--secondary-light);
+}
+
+/* Empty state for categories */
+.empty-categories {
+    text-align: center;
+    padding: 30px 0;
+    color: #888;
+    grid-column: 1 / -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .categories-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .categories-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    .color-selector {
+        width: 100%;
+        border: 1px solid #ddd;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        padding: 8px 10px;
+        border-radius: 4px;
+    }
+}

@@ -1,0 +1,94 @@
+/* Integration styles for task categories */
+
+/* Category badge styles */
+.task-category-badge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    color: white;
+    margin-left: 8px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+}
+
+/* Enhance task content layout to accommodate badges */
+.task-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* Style for tasks from categories */
+.task-item.from-category {
+    border-left-width: 4px;
+    border-left-style: solid;
+}
+
+/* Category section in task details */
+.task-category-info {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+
+.task-category-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* Add category selector to task editing */
+.category-selector {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.category-selector select {
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+}
+
+/* Category filter in main tasks view */
+.category-filter-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.category-filter-label {
+    font-size: 14px;
+    margin-right: 10px;
+    color: #666;
+}
+
+.category-filter-select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .task-category-badge {
+        max-width: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .task-category-info {
+        width: 100%;
+        margin-top: 8px;
+    }
+}
