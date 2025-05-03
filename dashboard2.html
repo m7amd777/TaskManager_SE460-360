@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHOOSE - Modern Task Manager</title>
+    <!-- Links to the CSS style sheets -->
+    <link rel="stylesheet" href="CSS/designed.css">
+    <link rel="stylesheet" href="CSS/basic2.css">
+    <link rel="stylesheet" href="CSS/dashboard2.css">
+    
+    <!-- Links to the JavaScript files -->
+    <script src="JS/script_designed.js" defer></script>
+    <script src="JS/dashboard2.js" defer></script>
+</head>
+<body>
+    <header>
+        <!-- App logo and title -->
+        <div class="logo">
+            <img src="resources/logo.png" alt="Logo" class="logo-image">
+        </div>
+        <!-- Current day and date display -->
+        <div class="date-display">
+            <div id="day">Saturday</div>
+            <div id="date">5/3/2025</div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar section -->
+        <aside class="sidebar">
+            <!-- User information display -->
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="resources/star.jpeg" alt="Star Mascot" class="mascot mascot-bottom-left">
+                </div>
+                <div class="user-details">
+                    <div class="user-name">Super Star</div>
+                    <div class="user-email">superstar@email.com</div>
+                </div>
+            </div>
+
+            <!-- Sidebar navigation menu -->
+            <ul class="sidebar-menu">
+                <li class="active"><i>📊</i> Dashboard</li>
+                <li><i>⚠️</i> Vital Task</li>
+                <li><i>📝</i> My Task</li>
+                <li><i>📋</i> Task Categories</li>
+                <li><i>⚙️</i> Settings</li>
+                <li><i>❓</i> Help</li>
+            </ul>
+
+            <!-- Logout button -->
+            <div class="logout-button">
+                <i>➡️</i> Logout
+            </div>
+        </aside>
+
+        <!-- Main content area -->
+        <main class="content">
+            <!-- Welcome banner -->
+            <div class="welcome-banner">
+                <h1>Welcome back, SuperStar <span class="star-emoji">⭐</span></h1>
+            </div>
+
+            <!-- Tasks Progress Section -->
+            <div class="progress-section">
+                <h2>TASKS PROGRESS</h2>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="progress-percentage" id="progress-percentage">74%</div>
+                </div>
+            </div>
+
+            <!-- Task Categories Section -->
+            <div class="task-categories-section">
+                <h2>Your <span class="tasks-title">TASKS</span></h2>
+                <div class="tasks-image-container">
+                <img
+                    id="tasks-image"
+                    src="resources/tasks.png"
+                    alt="Your Tasks Overview"
+                />
+                </div>
+            </div>
+            
+            <!-- Right side content - Journal and Quote -->
+            <div class="right-content">
+                <!-- Journal Prompt Section -->
+                <div class="journal-section">
+                    <h3>JOURNAL PROMPT <span class="help-icon">?</span></h3>
+                    <div class="journal-carousel">
+                        <div class="journal-slide active">
+                            <p>What's the most memorable trip you've ever taken?</p>
+                        </div>
+                        <div class="journal-slide">
+                            <p>What's one thing you're looking forward to this week?</p>
+                        </div>
+                        <div class="journal-slide">
+                            <p>What's a small win you had recently that made you proud?</p>
+                        </div>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                        <span class="dot" data-index="3"></span>
+                    </div>
+                </div>
+                
+                <!-- Quote of the Day Section -->
+                <div class="quote-section">
+                    <h3>QUOTE OF THE DAY</h3>
+                    <div class="quote-carousel">
+                        <div class="quote-slide active">
+                            <div class="quote-content">
+                                <p>If you've already started, don't give up until you get what you want.</p>
+                            </div>
+                        </div>
+                        <div class="quote-slide">
+                            <div class="quote-content">
+                                <p>The secret of getting ahead is getting started.</p>
+                            </div>
+                        </div>
+                        <div class="quote-slide">
+                            <div class="quote-content">
+                                <p>The best way to predict the future is to create it.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

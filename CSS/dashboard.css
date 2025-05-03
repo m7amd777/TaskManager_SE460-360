@@ -1,0 +1,175 @@
+/* dashboard.css */
+.dashboard-container {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    align-items: flex-start;
+  }
+  
+  /* LEFT PANEL */
+  .left-panel {
+    flex: 3;
+  }
+  .welcome-banner {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  .welcome-banner .star-icon {
+    margin-left: .5rem;
+    color: #ffd54f;
+  }
+  
+  .progress-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .progress-bar {
+    flex: 1;
+    height: 12px;
+    background: #eee;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-right: 0.5rem;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #4caf50;
+    transition: width 0.4s ease;
+  }
+  .progress-text {
+    min-width: 40px;
+    text-align: right;
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .highlighted-title {
+    color: #db0a7c;
+  }
+  
+  .task-cards {
+    display: flex;
+    gap: 1rem;
+  }
+  .task-card {
+    flex: 1;
+    border-radius: 8px;
+    padding: 1rem;
+    position: relative;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+    transition: transform .2s;
+  }
+  .task-card:hover { transform: translateY(-4px); }
+  .card-heart {
+    font-size: 1.2rem;
+    opacity: .7;
+  }
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: auto;
+  }
+  .card-add {
+    background: #fff;
+    color: #333;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    align-self: flex-start;
+    margin-top: .5rem;
+  }
+  #card-todo      { background: #f9c74f; }
+  #card-piano     { background: #00bcd4; }
+  #card-university{ background: #4caf50; }
+  
+  /* RIGHT PANEL */
+  .right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  /* Common widget */
+  .widget {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,.1);
+    margin-top: 5rem;
+  }
+  .widget-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: .5rem;
+  }
+  .widget-header.small {
+    font-size: .9rem;
+    color: #555;
+  }
+  .widget-body {
+    min-height: 80px;
+    position: relative;
+  }
+  
+  /* slideshow */
+  .slide-container {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+  .slide {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0;
+    transition: opacity .6s;
+    padding: .5rem;
+  }
+  .slide.active {
+    opacity: 1;
+  }
+  .dots {
+    text-align: center;
+    margin-top: .5rem;
+  }
+  .dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: 0 3px;
+    cursor: pointer;
+  }
+  .dot.active {
+    background: #333;
+  }
+
+  .tasks-image-container {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .tasks-image-container img {
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  .tasks-image-container img:hover {
+    transform: scale(1.02);
+  }
+  

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- … your existing head … -->
+  <link rel="stylesheet" href="CSS/designed.css">
+  <link rel="stylesheet" href="CSS/basic2.css">
+  <!-- new styles for the dashboard content area -->
+  <link rel="stylesheet" href="CSS/dashboard.css">
+</head>
+<body>
+    <header>
+        <!-- App logo and title -->
+        <div class="logo">
+            <img src="resources/logo.png" alt="Logo" class="logo-image">
+        </div>
+        <!-- Current day and date display -->
+        <div class="date-display">
+            <div id="day">Monday</div>
+            <div id="date">03/24/2025</div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar section -->
+        <aside class="sidebar">
+            <!-- User information display -->
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="resources/star.jpeg" alt="Star Mascot" class="mascot mascot-bottom-left">
+                </div>
+                <div class="user-details">
+                    <div class="user-name">Super Star</div>
+                    <div class="user-email">superstar@email.com</div>
+                </div>
+            </div>
+
+            <!-- Sidebar navigation menu -->
+            <ul class="sidebar-menu">
+                <li><i>📊</i> Dashboard</li>
+                <li><i>⚠️</i> Vital Task</li>
+                <li class="active"><i>📝</i> My Task</li>
+                <li><i>📋</i> Task Categories</li>
+                <li><i>⚙️</i> Settings</li>
+                <li><i>❓</i> Help</li>
+            </ul>
+
+            <!-- Logout button -->
+            <div class="logout-button">
+                <i>➡️</i> Logout
+            </div>
+        </aside>
+
+    <main class="content">
+      <div class="dashboard-container">
+        <!-- LEFT COLUMN -->
+        <section class="left-panel">
+          <div class="welcome-banner">
+            Welcome back, <span class="user-name">SuperStar</span>
+            <i class="star-icon">⭐</i>
+          </div>
+
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+            <div class="progress-text">0%</div>
+          </div>
+
+          <h2>Your <span class="highlighted-title">TASKS</span></h2>
+        <div class="tasks-image-container">
+        <img
+            id="tasks-image"
+            src="resources/tasks.png"
+            alt="Your Tasks Overview"
+        />
+        </div>
+
+        </section>
+
+        <!-- RIGHT COLUMN -->
+        <section class="right-panel">
+          <!-- Journal Prompt -->
+          <div class="widget journal-widget">
+            <div class="widget-header">
+              <span>JOURNAL PROMPT</span><i>?</i>
+            </div>
+            <div class="widget-body">
+              <div class="slide-container" id="journal-slides">
+                <!-- slides injected by JS -->
+              </div>
+            </div>
+            <div class="dots" id="journal-dots"></div>
+          </div>
+
+          <!-- Quote of the Day -->
+          <div class="widget quote-widget">
+            <div class="widget-header small">QUOTE OF THE DAY</div>
+            <div class="widget-body">
+              <div class="slide-container" id="quote-slides">
+                <!-- slides injected by JS -->
+              </div>
+            </div>
+            <div class="dots" id="quote-dots"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- existing scripts -->
+  <script src="JS/script2.js"></script>
+  <script src="JS/scriptIntegration.js"></script>
+  <!-- new dashboard behavior -->
+  <script src="JS/dashboard.js"></script>
+</body>
+</html>
