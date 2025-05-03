@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- … your existing head … -->
-  <link rel="stylesheet" href="CSS/designed.css">
-  <link rel="stylesheet" href="CSS/basic2.css">
-  <!-- new styles for the dashboard content area -->
-  <link rel="stylesheet" href="CSS/dashboard.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHOOSE - Modern Task Manager</title>
+    <!-- Links to the CSS style sheets -->
+    <link rel="stylesheet" href="CSS/designed.css">
+    <link rel="stylesheet" href="CSS/basic2.css">
+    <link rel="stylesheet" href="CSS/dashboard2.css">
+    
+    <!-- Links to the JavaScript files -->
+    <script src="JS/script_designed.js" defer></script>
+    <script src="JS/dashboard2.js" defer></script>
 </head>
 <body>
     <header>
@@ -15,8 +21,8 @@
         </div>
         <!-- Current day and date display -->
         <div class="date-display">
-            <div id="day">Monday</div>
-            <div id="date">03/24/2025</div>
+            <div id="day">Saturday</div>
+            <div id="date">5/3/2025</div>
         </div>
     </header>
 
@@ -36,12 +42,10 @@
 
             <!-- Sidebar navigation menu -->
             <ul class="sidebar-menu">
-                <li><i>📊</i> Dashboard</li>
-                <li><i>⚠️</i> Vital Task</li>
-                <li class="active"><i>📝</i> My Task</li>
-                <li><i>📋</i> Task Categories</li>
-                <li><i>⚙️</i> Settings</li>
-                <li><i>❓</i> Help</li>
+                <a href="dashboard.html" style="text-decoration: none; color: white;"><li class="active"><i>📊</i> Dashboard</li></a>
+                <a href="myTasks.html" style="text-decoration: none; color: white;"><li><i>📝</i> My Task</li></a>
+                <a href="task_categories.html" style="text-decoration: none; color: white;"><li><i>📋</i> Task Categories</li></a>
+                <a href="help.html" style="text-decoration: none; color: white;"><li><i>❓</i> Help</li></a>
             </ul>
 
             <!-- Logout button -->
@@ -50,67 +54,83 @@
             </div>
         </aside>
 
-    <main class="content">
-      <div class="dashboard-container">
-        <!-- LEFT COLUMN -->
-        <section class="left-panel">
-          <div class="welcome-banner">
-            Welcome back, <span class="user-name">SuperStar</span>
-            <i class="star-icon">⭐</i>
-          </div>
-
-          <div class="progress-container">
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
+        <!-- Main content area -->
+        <main class="content">
+            <!-- Welcome banner -->
+            <div class="welcome-banner">
+                <h1>Welcome back, SuperStar <span class="star-emoji">⭐</span></h1>
             </div>
-            <div class="progress-text">0%</div>
-          </div>
 
-          <h2>Your <span class="highlighted-title">TASKS</span></h2>
-        <div class="tasks-image-container">
-        <img
-            id="tasks-image"
-            src="resources/tasks.png"
-            alt="Your Tasks Overview"
-        />
-        </div>
-
-        </section>
-
-        <!-- RIGHT COLUMN -->
-        <section class="right-panel">
-          <!-- Journal Prompt -->
-          <div class="widget journal-widget">
-            <div class="widget-header">
-              <span>JOURNAL PROMPT</span><i>?</i>
+            <!-- Tasks Progress Section -->
+            <div class="progress-section">
+                <h2>TASKS PROGRESS</h2>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="progress-percentage" id="progress-percentage">74%</div>
+                </div>
             </div>
-            <div class="widget-body">
-              <div class="slide-container" id="journal-slides">
-                <!-- slides injected by JS -->
-              </div>
-            </div>
-            <div class="dots" id="journal-dots"></div>
-          </div>
 
-          <!-- Quote of the Day -->
-          <div class="widget quote-widget">
-            <div class="widget-header small">QUOTE OF THE DAY</div>
-            <div class="widget-body">
-              <div class="slide-container" id="quote-slides">
-                <!-- slides injected by JS -->
-              </div>
+            <!-- Task Categories Section -->
+            <div class="task-categories-section">
+                <h2>Your <span class="tasks-title">TASKS</span></h2>
+                <div class="tasks-image-container">
+                <img
+                    id="tasks-image"
+                    src="resources/tasks.png"
+                    alt="Your Tasks Overview"
+                />
+                </div>
             </div>
-            <div class="dots" id="quote-dots"></div>
-          </div>
-        </section>
-      </div>
-    </main>
-  </div>
-
-  <!-- existing scripts -->
-  <script src="JS/script2.js"></script>
-  <script src="JS/scriptIntegration.js"></script>
-  <!-- new dashboard behavior -->
-  <script src="JS/dashboard.js"></script>
+            
+            <!-- Right side content - Journal and Quote -->
+            <div class="right-content">
+                <!-- Journal Prompt Section -->
+                <div class="journal-section">
+                    <h3>JOURNAL PROMPT <span class="help-icon">?</span></h3>
+                    <div class="journal-carousel">
+                        <div class="journal-slide active">
+                            <p>What's the most memorable trip you've ever taken?</p>
+                        </div>
+                        <div class="journal-slide">
+                            <p>What's one thing you're looking forward to this week?</p>
+                        </div>
+                        <div class="journal-slide">
+                            <p>What's a small win you had recently that made you proud?</p>
+                        </div>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                        <span class="dot" data-index="3"></span>
+                    </div>
+                </div>
+                
+                <!-- Quote of the Day Section -->
+                <div class="quote-section">
+                    <h3>QUOTE OF THE DAY</h3>
+                    <div class="quote-carousel">
+                        <div class="quote-slide active">
+                            <div class="quote-content">
+                                <p>If you've already started, don't give up until you get what you want.</p>
+                            </div>
+                        </div>
+                        <div class="quote-slide">
+                            <div class="quote-content">
+                                <p>The secret of getting ahead is getting started.</p>
+                            </div>
+                        </div>
+                        <div class="quote-slide">
+                            <div class="quote-content">
+                                <p>The best way to predict the future is to create it.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
 </html>

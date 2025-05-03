@@ -12,6 +12,22 @@ document.addEventListener('DOMContentLoaded', function() {
     initCategoryCards();
 });
 
+const currentUser = localStorage.getItem("currentUser");
+const users = JSON.parse(localStorage.getItem("users")) || {};
+updateUserInfo();
+
+function updateUserInfo() {
+    const userNameElement = document.querySelector('.user-name');
+    const userEmailElement = document.querySelector('.user-email');
+    
+    if (currentUser && users[currentUser]) {
+        userNameElement.textContent = users[currentUser].username || "User";
+        userEmailElement.textContent = users[currentUser].email || currentUser;
+    }
+}
+
+
+
 // Update the current date in the header
 function updateDate() {
     const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

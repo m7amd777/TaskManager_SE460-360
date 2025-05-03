@@ -1,115 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHOOSE - Modern Task Manager</title>
-    <!-- Links to the CSS style sheets -->
-    <link rel="stylesheet" href="CSS/designed.css">
-    <link rel="stylesheet" href="CSS/basic2.css">
-    <link rel="stylesheet" href="CSS/integration.css">
-    
-    <!-- Links to the JavaScript files -->
-    <script src ="JS/script_designed.js" defer></script>
-    <script src ="JS/script2.js" defer></script>
-    <script src="JS/scriptintegration.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Choose &amp; Do</title>
+  <link rel="stylesheet" href="CSS/landing.css">
 </head>
 <body>
-    <header>
-        <!-- App logo and title -->
-        <div class="logo">
-            <img src="resources/logo.png" alt="Logo" class="logo-image">
-        </div>
-        <!-- Current day and date display -->
-        <div class="date-display">
-            <div id="day">Monday</div>
-            <div id="date">03/24/2025</div>
-        </div>
-    </header>
+  <header>
+    <div class="logo">★</div>
+    <nav>
+      <button id="login-btn" class="nav-btn">Log In</button>
+      <button id="signup-btn" class="nav-btn primary">Sign Up!</button>
+    </nav>
+  </header>
 
-    <div class="main-container">
-        <!-- Sidebar section -->
-        <aside class="sidebar">
-            <!-- User information display -->
-            <div class="user-info">
-                <div class="user-avatar">
-                    <img src="resources/star.jpeg" alt="Star Mascot" class="mascot mascot-bottom-left">
-                </div>
-                <div class="user-details">
-                    <div class="user-name">Super Star</div>
-                    <div class="user-email">superstar@email.com</div>
-                </div>
-            </div>
-
-            <!-- Sidebar navigation menu -->
-            <ul class="sidebar-menu">
-                <li><i>📊</i> Dashboard</li>
-                <li><i>⚠️</i> Vital Task</li>
-                <li class="active"><i>📝</i> My Task</li>
-                <li><i>📋</i> Task Categories</li>
-                <li><i>⚙️</i> Settings</li>
-                <li><i>❓</i> Help</li>
-            </ul>
-
-            <!-- Logout button -->
-            <div class="logout-button">
-                <i>➡️</i> Logout
-            </div>
-        </aside>
-
-        <!-- Main content area -->
-        <main class="content">
-            <!-- Welcome banner -->
-            <div class="welcome-banner">
-                Welcome back, SuperStar <span class="star-icon">★</span>
-            </div>
-
-            <!-- Task category section -->
-            <!-- <div class="task-categories"> -->
-            <div class="task-category">
-                <div class="category-header">
-                    <span>MAIN TASKS</span>
-                    <div class="category-icon">🎓</div>
-                </div>
-                <div class="container">
-                    <h1>TO-DO</h1>
-                    
-                    <!-- Task input field with priority selector and the add button -->
-                    <div class="input-group">
-                        <input type="text" id="task-input" placeholder="Add a new task...">
-                        <select id="priority-dropdown" class="priority-dropdown">
-                            <option value="low" class="priority-low">Low Priority</option>
-                            <option value="medium" class="priority-medium">Medium Priority</option>
-                            <option value="high" class="priority-high">High Priority</option>
-                        </select>
-                        <button id="add-task-btn">Add</button>
-                    </div>
-
-                    <!-- <div class="category-filter-container">
-                        <span class="category-filter-label">Category:</span>
-                        <select id="category-filter-dropdown" class="category-filter-select">
-                            <option value="all">All Categories</option>
-                        </select>
-                    </div> -->
-                    
-                    <!-- Search bar -->
-                    <div class="search-container">
-                        <input type="text" id="search-input" placeholder="Search tasks...">
-                    </div>
-                    
-                    <!-- Priority filter buttons -->
-                    <div class="filter-container">
-                        <button class="filter-btn active" data-filter="all">All</button>
-                        <button class="filter-btn" data-filter="low">Low Priority</button>
-                        <button class="filter-btn" data-filter="medium">Medium Priority</button>
-                        <button class="filter-btn" data-filter="high">High Priority</button>
-                    </div>
-                    
-                    <!-- Placeholder for task list items -->
-                    <ul id="task-list" class="task-list"></ul>
-                </div>
-            </div>
-        </main>
+  <div class="container">
+    <div class="left-panel">
+      <div class="signup-cta">
+        <h2>Sign up</h2>
+        <div class="pill">NOW</div>
+      </div>
+      <div class="big-choose">
+        <h1>
+          CHOOSE
+          <span class="and-do">&amp;DO</span>
+        </h1>
+      </div>
     </div>
+
+    <div class="right-panel">
+      <div class="quote">
+        <blockquote>
+          "Nothing Will Work Unless You Do."
+        </blockquote>
+        <cite>Maya Angelou</cite>
+      </div>
+      <div class="next-slide">
+        <button id="arrow-btn" class="arrow-btn">→</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="JS/landing.js"></script>
 </body>
 </html>
