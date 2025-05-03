@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHOOSE - Modern Task Manager</title>
+    <!-- Links to the CSS style sheets -->
+    <link rel="stylesheet" href="CSS/designed.css">
+    <link rel="stylesheet" href="CSS/basic2.css">
+    <!-- <link rel="stylesheet" href="CSS/modal.css"> -->
+    <!-- Links to the JavaScript files -->
+    <script src ="JS/script_designed.js" defer></script>
+    <script src ="JS/script2.js" defer></script>
+    <!-- <script src ="JS/modal.js" defer></script> -->
+</head>
+<body>
+    <header>
+        <!-- App logo and title -->
+        <div class="logo">
+            <img src="resources/logo.png" alt="Logo" class="logo-image">
+        </div>
+        <!-- Current day and date display -->
+        <div class="date-display">
+            <div id="day">Monday</div>
+            <div id="date">03/24/2025</div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar section -->
+        <aside class="sidebar">
+            <!-- User information display -->
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="resources/star.jpeg" alt="Star Mascot" class="mascot mascot-bottom-left">
+                </div>
+                <div class="user-details">
+                    <div class="user-name">Super Star</div>
+                    <div class="user-email">superstar@email.com</div>
+                </div>
+            </div>
+
+            <!-- Sidebar navigation menu -->
+            <ul class="sidebar-menu">
+                <li><i>📊</i> Dashboard</li>
+                <li><i>⚠️</i> Vital Task</li>
+                <li class="active"><i>📝</i> My Task</li>
+                <li><i>📋</i> Task Categories</li>
+                <li><i>⚙️</i> Settings</li>
+                <li><i>❓</i> Help</li>
+            </ul>
+
+            <!-- Logout button -->
+            <div class="logout-button">
+                <i>➡️</i> Logout
+            </div>
+        </aside>
+
+        <!-- Main content area -->
+        <main class="content">
+            <!-- Help content -->
+            <div class="help-section">
+                <h1>How to Use the To-Do List App</h1>
+                <p>Welcome to the To-Do List App! Here's a quick guide to help you get started:</p>
+                <ol>
+                    <li><strong>Adding Tasks:</strong> Use the input field at the top of the dashboard to add new tasks. Select a priority and click "Add Task".</li>
+                    <li><strong>Editing Tasks:</strong> Click the edit icon next to a task to modify its details.</li>
+                    <li><strong>Marking Tasks as Complete:</strong> Check the box next to a task to mark it as completed.</li>
+                    <li><strong>Deleting Tasks:</strong> Click the delete icon to remove a task from your list.</li>
+                    <li><strong>Filtering Tasks:</strong> Use the filter buttons to view tasks by priority or search for specific tasks using the search bar.</li>
+                    <li><strong>Logout:</strong> Click the "Logout" button in the sidebar to securely log out of your account.</li>
+                </ol>
+                <p>If you have any further questions, feel free to reach out to support!</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
