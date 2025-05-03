@@ -173,3 +173,50 @@ body {
         display: none;
     }
 }
+
+
+/*Styling for password rules and rule box*/
+.password-rules {
+    background-color: #f5f7fa;
+    border: 1px solid #cfd8dc;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rules-title {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.password-rules ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.password-rules li {
+    margin: 6px 0;
+    padding-left: 1.5em;
+    position: relative;
+    color: #d32f2f; /* default red */
+}
+
+.password-rules li::before {
+    content: "✖";
+    position: absolute;
+    left: 0;
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.password-rules li.valid {
+    color: #388e3c;
+}
+
+.password-rules li.valid::before {
+    content: "✔";
+    color: #388e3c;
+}
