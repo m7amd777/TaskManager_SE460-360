@@ -25,6 +25,23 @@
     cursor: pointer;
 }
 
+#category-name {
+    /*Main task input box*/
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+}
+
+
+#category-task-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+}
 /* Categories list styling */
 .categories-container {
     margin-top: 20px;
@@ -36,6 +53,54 @@
     color: var(--text-dark);
     border-bottom: 1px solid #eee;
     padding-bottom: 8px;
+}
+
+.search-container {
+    /*Wrapper for search input*/
+    margin-bottom: 20px;
+}
+
+#category-search {
+    /*Search input field*/
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#add-category-btn {
+    /*Add task button styling*/
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#add-category-btn:hover {
+    /*Hover effect for add button*/
+    background-color: var(--secondary-light);
+}
+
+#add-category-task-btn {
+    /*Add task button styling*/
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#add-category-task-btn:hover {
+    /*Hover effect for add button*/
+    background-color: var(--secondary-light);
 }
 
 .categories-list {

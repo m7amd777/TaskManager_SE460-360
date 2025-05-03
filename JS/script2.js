@@ -9,7 +9,8 @@ const logoutButton = document.querySelector('.logout-button'); // Select the log
 
 // Task array to store all tasks
 let tasks = [];
-let currentFilter = 'all'; //Default filter as the page loads
+window.currentFilter = 'all'; //Default filter as the page loads
+let currentFilter = window.currentFilter;
 const currentUser = localStorage.getItem("currentUser");
 const users = JSON.parse(localStorage.getItem("users")) || {};
 
@@ -76,6 +77,7 @@ filterButtons.forEach(button => {
         filterButtons.forEach(btn => btn.classList.remove('active')); //Remove active class from all buttons
         this.classList.add('active'); //Add active class to clicked button
         currentFilter = this.getAttribute('data-filter'); //Get the filter type
+        window.currentFilter = currentFilter;
         filterAndRenderTasks(); //Redisplay tasks with new filter
     });
 });
