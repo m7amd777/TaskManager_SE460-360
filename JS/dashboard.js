@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCategoryCards();
 });
 
+const logoutButton = document.querySelector('.logout-button'); // Select the logout button
 const currentUser = localStorage.getItem("currentUser");
 const users = JSON.parse(localStorage.getItem("users")) || {};
 updateUserInfo();
@@ -189,3 +190,12 @@ function initCategoryCards() {
         });
     });
 }
+
+
+logoutButton.addEventListener('click', function () {
+    // Clear the current user from local storage
+    localStorage.removeItem('currentUser');
+
+    // Redirect to the login page
+    window.location.href = 'login_signup.html';
+});
